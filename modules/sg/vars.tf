@@ -1,0 +1,10 @@
+variable "name" {}
+variable "vpc_id" {}
+variable "in_from_port" {}
+variable "in_to_port" {}
+variable "in_protocol" {}
+variable "in_cidr_blocks" {}
+variable "e_from_port" {}
+variable "e_to_port" {}
+variable "e_protocol" {}
+variable "e_cidr_blocks" {}
