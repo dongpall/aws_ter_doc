@@ -12,19 +12,34 @@ variable "alltags" {
   default = "Juhyeok"
 }
 
-variable "pub_subnet_cidr" {
+variable "pub_subnet_a_cidr" {
   description = "Pub Subnet CIDR : x.x.x.x/x"
   default = "10.2.50.0/24"
 }
 
-variable "subnet_az" {
-  description = "Public Subnet AZ : 0(A) ~ 3(D)"
+variable "pub_subnet_c_cidr" {
+  description = "Pub Subnet CIDR : x.x.x.x/x"
+  default = "10.2.100.0/24"
+}
+
+variable "subnet_az_a" {
+  description = "Subnet AZ : 0(A) ~ 3(D)"
   default = 0
 }
 
-variable "pri_subnet_cidr" {
+variable "subnet_az_c" {
+  description = "Subnet AZ : 0(A) ~ 3(D)"
+  default = 2
+}
+
+variable "pri_subnet_a_cidr" {
   description = "Pri Subnet CIDR : x.x.x.x/x"
-  default = "10.2.150.0/24"
+  default = "10.2.75.0/24"
+}
+
+variable "pri_subnet_c_cidr" {
+  description = "Pri Subnet CIDR : x.x.x.x/x"
+  default = "10.2.125.0/24"
 }
 
 variable "web_server_ami" {
