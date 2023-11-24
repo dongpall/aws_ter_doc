@@ -81,8 +81,3 @@ variable "bastion_key_name" {
   description = "key_name"
   default = "../key_pair/terraform_pjec_key.pem"
 }
-
-variable "domain_name" {
-  description = "Domain name"
-  default = "Hyeok26h314324342"
-}
