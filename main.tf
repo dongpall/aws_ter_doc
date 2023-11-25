@@ -303,7 +303,7 @@ resource "aws_lb" "app_lb" {
   internal = false
   load_balancer_type = "application"
   security_groups = [module.lb_sg.sg_id]
-  subnets = [module.pri_subnet_web_a.subnet_id, module.pri_subnet_web_c.subnet_id]
+  subnets = [module.pub_subnet_bastion_a.subnet_id, module.pub_subnet_bastion_c.subnet_id]
 
   depends_on = [ module.web_server_a.instance_id, module.web_server_c.instance_id ]
 
