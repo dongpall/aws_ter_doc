@@ -1,5 +1,5 @@
 data "aws_availability_zones" "available" {
-    state = "available"
+  state = "available"
 }
 
 variable "vpc_cidr" {
@@ -48,8 +48,8 @@ variable "web_server_ami" {
 }
 
 variable "web_instance_type" {
-  description = "Instance Type : t2.micro"
-  default = "t2.micro"
+  description = "Instance Type : t2.nano"
+  default = "t2.nano"
 }
 
 variable "web_key_name" {
@@ -73,8 +73,8 @@ variable "bastion_ami" {
 }
 
 variable "bastion_instance_type" {
-  description = "Instance Type : t2.micro"
-  default = "t2.micro"
+  description = "Instance Type : t2.nano"
+  default = "t2.nano"
 }
 
 variable "bastion_key_name" {
