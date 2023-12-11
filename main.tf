@@ -316,6 +316,18 @@ resource "aws_route53_record" "my_domain_record" {
   ]
 }
 
+resource "aws_route53_record" "my_domain_alias" {
+  zone_id = aws_route53_zone.my_domain.id
+  name = "juhyeok.site"
+  type = "A"
+
+  alias {
+    name = aws_lb.app_lb.dns_name
+    zone_id = aws_lb.app_lb.zone_id
+    evaluate_target_health = false
+  }
+}
+
 # ACM
 resource "aws_acm_certificate" "web_acm_certificate" {
   domain_name = "juhyeok.site"
@@ -355,8 +367,10 @@ resource "aws_lb_target_group" "alb_target" {
 
 resource "aws_lb_listener" "alb_listner" {
   load_balancer_arn = aws_lb.app_lb.arn
-  port = "80"
-  protocol = "HTTP"
+  port = "443"
+  protocol = "HTTPS"
+
+  ssl_policy = "ELBSecurityPolicy-2016-08"
   default_action {
     type = "forward"
     target_group_arn = aws_lb_target_group.alb_target.arn
@@ -383,9 +397,9 @@ module "lb_sg" {
   vpc_id = module.vpc.vpc_id
 
   # ingress(http)
-  in_from_port = 80
-  in_to_port = 80
-  in_protocol = "tcp"
+  in_from_port = 0
+  in_to_port = 0
+  in_protocol = "-1"
   in_cidr_blocks = ["0.0.0.0/0"]
 
   # egress
