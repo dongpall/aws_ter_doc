@@ -297,6 +297,26 @@ module "bastion_host_c" {
   name = var.bastion_name
 }
 
+# route53(가비아 도메인)
+resource "aws_route53_zone" "my_domain" {
+  name = "juhyeok.site"
+}
+
+resource "aws_route53_record" "my_domain_record" {
+  zone_id = aws_route53_zone.my_domain.id
+  name = "juhyeok.site"
+  type = "NS"
+
+  ttl = "300"
+
+  records = [
+    "ns.gabia.co.kr",
+    "ns1.gabia.co.kr",
+    "ns.gabia.net"
+  ]
+}
+
+
 # application Load Balancer
 resource "aws_lb" "app_lb" {
   name = "app-lb"
