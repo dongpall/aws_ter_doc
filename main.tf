@@ -316,6 +316,15 @@ resource "aws_route53_record" "my_domain_record" {
   ]
 }
 
+# ACM
+resource "aws_acm_certificate" "web_acm_certificate" {
+  domain_name = "juhyeok.site"
+  validation_method = "DNS"
+
+  tags = {
+    Name = "WebCertificate"
+  }
+}
 
 # application Load Balancer
 resource "aws_lb" "app_lb" {
