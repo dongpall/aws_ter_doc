@@ -258,7 +258,7 @@ module "web_server_a" {
   subnet_id = module.pri_subnet_web_a.subnet_id
   key_name = aws_key_pair.terraform-key.key_name
 
-  name = var.web_name
+  name = "${var.web_name}-a"
 }
 
 module "bastion_host_a" {
@@ -270,7 +270,7 @@ module "bastion_host_a" {
   subnet_id = module.pub_subnet_bastion_a.subnet_id
   key_name = aws_key_pair.terraform-key.key_name
 
-  name = var.bastion_name
+  name = "${var.bastion_name}-a"
 }
 
 module "web_server_c" {
@@ -282,7 +282,7 @@ module "web_server_c" {
   subnet_id = module.pri_subnet_web_c.subnet_id
   key_name = aws_key_pair.terraform-key.key_name
 
-  name = var.web_name
+  name = "${var.web_name}-c"
 }
 
 module "bastion_host_c" {
@@ -294,7 +294,7 @@ module "bastion_host_c" {
   subnet_id = module.pub_subnet_bastion_c.subnet_id
   key_name = aws_key_pair.terraform-key.key_name
 
-  name = var.bastion_name
+  name = "${var.bastion_name}-c"
 }
 
 # route53
