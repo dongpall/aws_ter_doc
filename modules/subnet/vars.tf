@@ -5,10 +5,10 @@ variable "is_public" {}
 variable "alltags" {}
 
 variable "private_or_public" {
-    type = map(any)
-    default = {
-        true = "public"
-        false = "private"
-    }
+  type = map(any)
+  default = {
+    true  = "public"
+    false = "private"
+  }
 }
 
